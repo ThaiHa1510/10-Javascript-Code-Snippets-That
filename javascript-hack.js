@@ -53,3 +53,88 @@ mandatory = () => {
 submitName= (name= mandatory()) => {
   return name;
 }
+////////////////
+#Conditionally Add Properties to Object
+const condition=true;
+const object = {
+  id:1,
+  name:'test',
+  ...(condition && {age:25})
+}
+
+/////////////////////
+#Check if a Property Exists in an Object 
+# Use in operator to check properti exists in a object
+const a = {'age':25,name:'test'};
+console.log('id' in a);
+console.log('name' in a);
+//////////////////////////
+# Dynamic name in object
+# Just use the ['key_name'] notation to add the properties:
+const dynamic = 'falvor';
+const items ={
+  age:25,
+  [dynamic]:'chocolate'
+}
+//////////////////////////
+# Object Destructuring With a Dynamic Key
+
+# Frist , destructuring with aliases
+const person ={'name':'test','age':25}
+const {name:personName } =person;
+console.log(personName);
+
+# Seconds link dynamic name in object , 
+  const templates = {
+  'hello': 'Hello there',
+  'bye': 'Good bye'
+};
+const templateName = 'bye';
+const { [templateName]: template } = templates;
+console.log(template) // returns 'Good bye'
+
+/////////
+# Nullish Coalescing, ?? Operator
+const item ={name:'Joine Doe',age:21};
+const id = item.id ?? '1'; # return 1;
+const name = item.name ?? 'Default name'; # return Joine Doe;
+const streets = item.address.street??'street'; # return errors
+
+///////////////////////////////////////////////////////////////////
+#  Optional chaining (?.)
+
+const person ={name:'Joe Doe ',age:22};
+consote street = person.addrress?.street; # return undefined
+
+# Boolean Conversion Using the !! Operator
+# Convert value undefied  , null ,
+const greeting = 'Hello there!';
+console.log(!!greeting) // returns true
+const noGreeting = '';
+console.log(!!noGreeting); // returns false
+
+///////////
+#String and Integer Conversions
+#Quickly convert a string to a number using the + operator like this:
+const stringNumer = '123';
+console.log(+stringNumer); // returns integer 123
+console.log(typeof +stringNumer); // returns 'number'
+//////
+# Check Falsy Values in an Array
+const myArray = [null, false, 'Hello', undefined, 0];
+// filter falsy values
+const filtered = myArray.filter(Boolean);
+console.log(filtered); // returns ['Hello']
+// check if at least one value is truthy
+const anyTruthy = myArray.some(Boolean);
+console.log(anyTruthy); // returns true
+// check if all values are truthy
+const allTruthy = myArray.every(Boolean);
+console.log(allTruthy); // returns false
+
+////////////////
+# Flattening Arrays of Arrays
+#There is a method flat on the prototype Array that lets you make a single array from an array of arrays:
+const myArray = [{ id: 1 }, [{ id: 2 }], [{ id: 3 }]];
+const flattedArray = myArray.flat(); 
+// returns [ { id: 1 }, { id: 2 }, { id: 3 } ]
