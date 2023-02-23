@@ -54,3 +54,19 @@ var object = {
 
 object.add(5, 10).multiply(10)
 console.log(object.res)
+
+
+// sum all in the values in array 
+let sumArray = [1,2,3];
+const sumtArrayResult = sumArray.reduce((x,y)=> x+y);
+
+// schuffle array elements
+const schuffleArr = [11,22,442,34,909,68,83];
+console.log(sumArray.sort(function (){
+  return Math.random()-0.5;
+}))
+
+// Comma operator 
+let x =1;
+x=(2,3,4);
+console.log(x);
