@@ -9,3 +9,8 @@ function swapKeyAndValue(obj) {
     }
     return newObj;
 }
+
+// using Object from entries and object entries
+function swapKeyAndValue2(obj){
+    return Object.fromEntries(Object.entries(obj).map((item) => item.reverse()));
+}
